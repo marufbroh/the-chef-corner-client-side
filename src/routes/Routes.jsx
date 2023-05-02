@@ -6,6 +6,7 @@ import Home from "../pages/Home/Home";
 import ChefDetails from "../pages/ChefDetails/ChefDetails";
 import Login from "../pages/Account/Login";
 import Register from "../pages/Account/Register";
+import Blog from "../pages/Blog/Blog";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
                 path: "/chef-details",
                 element: <ChefDetails />
             },
+            {
+                path: "/blog",
+                element: <Blog />
+            },
         ]
     },
     {
@@ -27,11 +32,11 @@ const router = createBrowserRouter([
         element: <AccountLayout />,
         children: [
             {
-                path: "/login",
+                path: "/account/login",
                 element: <Login />
             },
             {
-                path: "/register",
+                path: "/account/register",
                 element: <Register />
             },
         ]
