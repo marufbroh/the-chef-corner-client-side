@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ChefData = ({ singleChefData }) => {
+const ChefData = ({ chefData }) => {
     // console.log(singleChefData);
-    const { id, chef_name, chef_picture, years_of_experience, num_recipes, likes } = singleChefData;
+    const { id, chef_name, chef_picture, years_of_experience, num_recipes, likes } = chefData;
     return (
         <div className="card w-96 lg:w-full lg:card-side bg-base-100 shadow-xl">
             <figure className='lg:w-80'><img src={chef_picture} alt="chefPicture" /></figure>
