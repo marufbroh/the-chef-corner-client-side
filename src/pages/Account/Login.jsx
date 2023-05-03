@@ -8,7 +8,7 @@ const Login = () => {
             <div className=" bg-white rounded-lg shadow-lg mx-auto max-w-sm lg:max-w-xl">
                 <form className="w-full p-8">
                     <h2 className="text-2xl font-semibold text-gray-700 text-center">The Chef's Corner</h2>
-                    <p className="text-xl text-gray-600 text-center">Login Please!</p>
+                    <p className="text-xl text-gray-600 text-center">Please Login!</p>
                     {/* <div className='flex flex-col lg:flex-row gap-3'>
                         <Link className="flex items-center w-full justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
                             <div className="px-4 py-3">
