@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../providers/AuthProviders';
+import toast from 'react-hot-toast';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
@@ -18,7 +19,7 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(name, photoUrl, email, password);
+        // console.log(name, photoUrl, email, password);
 
         if (password.length < 6) {
             return setError("Minimum six characters")
@@ -28,11 +29,13 @@ const Register = () => {
             .then(result => {
                 const loggedUser = result.user;
                 // console.log(loggedUser);
-                setSuccess("User Succesfully Created")
+                setSuccess("User Successfully Created")
+                toast.success("User Successfully Created")
                 form.reset()
             })
             .catch(error => {
                 setError(error.message);
+                toast.error(error.message)
             })
 
     }

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../providers/AuthProviders';
+import toast from 'react-hot-toast';
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
@@ -28,12 +29,14 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                setSuccess("User Succesfully Logged")
+                setSuccess("User Successfully Logged")
+                toast.success("User Successfully Logged")
                 navigate(from, { replace: true })
                 form.reset()
             })
             .catch(error => {
                 setError(error.message);
+                toast.error(error.message)
             })
     }
     return (
