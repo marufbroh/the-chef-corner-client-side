@@ -5,7 +5,7 @@ import { AuthContext } from '../../providers/AuthProviders';
 import toast from 'react-hot-toast';
 
 const Login = () => {
-    const { signIn, googleSignIn } = useContext(AuthContext);
+    const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
 
     const navigate = useNavigate()
 
@@ -42,6 +42,21 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         googleSignIn()
+            .then(result => {
+                const loggedUser = result.user;
+                // console.log(loggedUser);
+                setSuccess("User Successfully Logged")
+                toast.success("User Successfully Logged")
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                setError(error.message);
+                toast.error(error.message)
+            })
+    }
+
+    const handleGithubSignIn = () => {
+        githubSignIn()
             .then(result => {
                 const loggedUser = result.user;
                 // console.log(loggedUser);
@@ -95,7 +110,7 @@ const Login = () => {
                             <FaGoogle className='text-black' />
                             <span className="py-3 text-center text-gray-600 font-bold">Google</span>
                         </button>
-                        <button className="flex gap-2 items-center w-full justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
+                        <button onClick={handleGithubSignIn} className="flex gap-2 items-center w-full justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
                             <FaGithub className='text-black' />
                             <span className="py-3 text-center text-gray-600 font-bold">Github</span>
                         </button>

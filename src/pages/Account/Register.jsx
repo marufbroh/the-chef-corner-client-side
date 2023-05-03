@@ -5,7 +5,7 @@ import { AuthContext } from '../../providers/AuthProviders';
 import toast from 'react-hot-toast';
 
 const Register = () => {
-    const { createUser, updateUserData } = useContext(AuthContext);
+    const { createUser, updateUserData, googleSignIn, githubSignIn } = useContext(AuthContext);
 
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
@@ -54,6 +54,34 @@ const Register = () => {
     //         });
     // }
 
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                const loggedUser = result.user;
+                // console.log(loggedUser);
+                setSuccess("User Successfully Logged")
+                toast.success("User Successfully Logged")
+            })
+            .catch(error => {
+                setError(error.message);
+                toast.error(error.message)
+            })
+    }
+
+    const handleGithubSignIn = () => {
+        githubSignIn()
+            .then(result => {
+                const loggedUser = result.user;
+                // console.log(loggedUser);
+                setSuccess("User Successfully Logged")
+                toast.success("User Successfully Logged")
+            })
+            .catch(error => {
+                setError(error.message);
+                toast.error(error.message)
+            })
+    }
+
 
     return (
         <div className="py-6 lg:py-24">
@@ -96,11 +124,11 @@ const Register = () => {
                         }
                     </div>
                     <div className='flex flex-col lg:flex-row gap-3'>
-                        <button className="flex gap-2 items-center w-full justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
+                        <button onClick={handleGoogleSignIn} className="flex gap-2 items-center w-full justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
                             <FaGoogle className='text-black' />
                             <span className="py-3 text-center text-gray-600 font-bold">Google</span>
                         </button>
-                        <button className="flex gap-2 items-center w-full justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
+                        <button onClick={handleGithubSignIn} className="flex gap-2 items-center w-full justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
                             <FaGithub className='text-black' />
                             <span className="py-3 text-center text-gray-600 font-bold">Github</span>
                         </button>

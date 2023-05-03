@@ -5,7 +5,7 @@ import { AuthContext } from '../../providers/AuthProviders';
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { user, logOut } = useContext(AuthContext);
-
+    // console.log(user?.photoURL);
     const handleLogOut = () => {
         logOut()
     }
@@ -45,20 +45,29 @@ const Navbar = () => {
                         onClick={() => setIsMenuOpen(true)}
                         className='p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50'
                     >
-                        <svg className='w-5 text-gray-600' viewBox='0 0 24 24'>
-                            <path
-                                fill='currentColor'
-                                d='M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z'
-                            />
-                            <path
-                                fill='currentColor'
-                                d='M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z'
-                            />
-                            <path
-                                fill='currentColor'
-                                d='M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z'
-                            />
-                        </svg>
+
+                        {
+                            user?.photoURL ?
+                                <img
+                                    src={user?.photoURL}
+                                    alt="User Profile"
+                                    className="w-10 h-10 rounded-full"
+                                /> : <svg className='w-5 text-gray-600' viewBox='0 0 24 24'>
+                                    <path
+                                        fill='currentColor'
+                                        d='M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z'
+                                    />
+                                    <path
+                                        fill='currentColor'
+                                        d='M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z'
+                                    />
+                                    <path
+                                        fill='currentColor'
+                                        d='M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z'
+                                    />
+                                </svg>
+
+                        }
                     </button>
                     {isMenuOpen && (
                         <div className='absolute z-10 top-0 left-0 w-full p-5'>
@@ -107,6 +116,29 @@ const Navbar = () => {
                                                 Blog
                                             </Link>
                                         </li>
+                                        {!user ? <li>
+                                            <Link
+                                                to='/account/login'
+                                                className={({ isActive }) => (isActive ? 'active' : 'default')}
+                                            >
+                                                Login
+                                            </Link>
+                                        </li> :
+                                            <li onClick={handleLogOut}>
+                                                <Link
+                                                    className={({ isActive }) => (isActive ? 'active' : 'default')}
+                                                >
+                                                    Logout
+                                                </Link>
+                                            </li>}
+                                        <li>
+                                            <Link
+                                                to='/account/register'
+                                                className={({ isActive }) => (isActive ? 'active' : 'default')}
+                                            >
+                                                Register
+                                            </Link>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -125,11 +157,15 @@ const Navbar = () => {
                             Login
                         </button></Link>
                     }
-                    <img
-                        src="https://via.placeholder.com/50"
-                        alt="User Profile"
-                        className="w-10 h-10 rounded-full"
-                    />
+                    {
+                        user?.photoURL &&
+                        <img
+                            src={user?.photoURL}
+                            alt="User Profile"
+                            className="w-10 h-10 rounded-full hidden lg:flex"
+                        />
+
+                    }
                 </div>
             </div>
         </div>

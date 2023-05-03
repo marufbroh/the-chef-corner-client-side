@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import banner1 from '../../assets/top-view-table-full-delicious-food-composition.jpg'
 import banner2 from '../../assets/nutrition-vegetables-kitchenware.jpg'
 import banner3 from '../../assets/douglas-lopez-LlPLQGgYuio-unsplash.jpg'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProviders';
 
 const Banner = () => {
+    const {user} = useContext(AuthContext)
     return (
         <AwesomeSlider className='lg:h-[80vh]'>
             <div className='relative'>
@@ -16,14 +18,14 @@ const Banner = () => {
                     <p className='my-6 text-lg md:text-xl max-w-2/3 md:max-w-xl max-w-2xl text-white'>
                         Unleash your inner chef with our delectable recipes and cooking tips. Elevate your culinary game with us and savor the flavors of life.
                     </p>
-                    <div className='hidden lg:flex justify-center gap-5'>
+                    {!user && <div className='hidden lg:flex justify-center gap-5'>
                         <Link to='/account/login'>
                             <button className="btn-primary btn-wide" type='submit'>Login</button>
                         </Link>
                         <Link to='/account/register'>
                             <button className="btn-primary btn-wide" type='submit'>Register</button>
                         </Link>
-                    </div>
+                    </div>}
                 </div>
             </div>
             <div className='relative'>
@@ -33,14 +35,14 @@ const Banner = () => {
                     <p className='my-6 text-lg md:text-xl max-w-2/3 md:max-w-xl max-w-2xl text-white'>
                         Unleash your inner chef with our delectable recipes and cooking tips. Elevate your culinary game with us and savor the flavors of life.
                     </p>
-                    <div className='hidden lg:flex justify-center gap-5'>
+                    {!user && <div className='hidden lg:flex justify-center gap-5'>
                         <Link to='/account/login'>
                             <button className="btn-primary btn-wide" type='submit'>Login</button>
                         </Link>
                         <Link to='/account/register'>
                             <button className="btn-primary btn-wide" type='submit'>Register</button>
                         </Link>
-                    </div>
+                    </div>}
                 </div>
             </div>
             <div className='relative'>
@@ -50,14 +52,14 @@ const Banner = () => {
                     <p className='my-6 text-lg md:text-xl max-w-2/3 md:max-w-xl max-w-2xl text-white'>
                         Unleash your inner chef with our delectable recipes and cooking tips. Elevate your culinary game with us and savor the flavors of life.
                     </p>
-                    <div className='hidden lg:flex justify-center gap-5'>
+                    {!user && <div className='hidden lg:flex justify-center gap-5'>
                         <Link to='/account/login'>
                             <button className="btn-primary btn-wide" type='submit'>Login</button>
                         </Link>
                         <Link to='/account/register'>
                             <button className="btn-primary btn-wide" type='submit'>Register</button>
                         </Link>
-                    </div>
+                    </div>}
                 </div>
             </div>
         </AwesomeSlider>

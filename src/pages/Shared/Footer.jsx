@@ -6,7 +6,7 @@ const Footer = () => {
         <div className='bg-slate-950'>
             <div className='my-container text-white space-y-10'>
                 <div className='grid grid-cols-1 lg:grid-cols-4 gap-4'>
-                    <div className='space-y-6'>
+                    <div className='space-y-6 px-2'>
                         <h3 className='font-bold text-3xl'>The Chef's Corner</h3>
                         <p className='text-gray-500'>Unleash your inner chef with our delectable recipes and cooking tips. Elevate your culinary game with us and savor the flavors of life.</p>
                         <img src={socialIcons} alt="" />
