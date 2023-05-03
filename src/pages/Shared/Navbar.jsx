@@ -111,9 +111,9 @@ const Navbar = () => {
                     Start Applying
                 </button> */}
                 <div className="flex items-center gap-5">
-                    <button type='button' className='btn-outlined hidden lg:flex'>
+                    <Link to={"/account/login"}><button type='button' className='btn-outlined hidden lg:flex'>
                         Login
-                    </button>
+                    </button></Link>
                     <img
                         src="https://via.placeholder.com/50"
                         alt="User Profile"

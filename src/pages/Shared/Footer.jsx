@@ -11,15 +11,6 @@ const Footer = () => {
                         <p className='text-gray-500'>Unleash your inner chef with our delectable recipes and cooking tips. Elevate your culinary game with us and savor the flavors of life.</p>
                         <img src={socialIcons} alt="" />
                     </div>
-                    {/* <div className='space-y-4 pl-5'>
-                        <h4 className='text-xl font-bold'>Company</h4>
-                        <div className='text-gray-500 space-y-3'>
-                            <p>About Us</p>
-                            <p>Work</p>
-                            <p>Latest News</p>
-                            <p>Careers</p>
-                        </div>
-                    </div> */}
                     <div className='space-y-4 pl-5'>
                         <h4 className='text-xl font-bold'>Opening Hours</h4>
                         <div className='text-gray-500 space-y-3'>
