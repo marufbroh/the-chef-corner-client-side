@@ -18,10 +18,10 @@ const Banner = () => {
                     </p>
                     <div className='hidden lg:flex justify-center gap-5'>
                         <Link to='/account/login'>
-                            <button className="btn btn-wide bg-color" type='submit'>Login</button>
+                            <button className="btn-primary btn-wide" type='submit'>Login</button>
                         </Link>
                         <Link to='/account/register'>
-                            <button className="btn btn-wide bg-color" type='submit'>Register</button>
+                            <button className="btn-primary btn-wide" type='submit'>Register</button>
                         </Link>
                     </div>
                 </div>
@@ -35,10 +35,10 @@ const Banner = () => {
                     </p>
                     <div className='hidden lg:flex justify-center gap-5'>
                         <Link to='/account/login'>
-                            <button className="btn btn-wide bg-color" type='submit'>Login</button>
+                            <button className="btn-primary btn-wide" type='submit'>Login</button>
                         </Link>
                         <Link to='/account/register'>
-                            <button className="btn btn-wide bg-color" type='submit'>Register</button>
+                            <button className="btn-primary btn-wide" type='submit'>Register</button>
                         </Link>
                     </div>
                 </div>
@@ -52,10 +52,10 @@ const Banner = () => {
                     </p>
                     <div className='hidden lg:flex justify-center gap-5'>
                         <Link to='/account/login'>
-                            <button className="btn btn-wide bg-color" type='submit'>Login</button>
+                            <button className="btn-primary btn-wide" type='submit'>Login</button>
                         </Link>
                         <Link to='/account/register'>
-                            <button className="btn btn-wide bg-color" type='submit'>Register</button>
+                            <button className="btn-primary btn-wide" type='submit'>Register</button>
                         </Link>
                     </div>
                 </div>

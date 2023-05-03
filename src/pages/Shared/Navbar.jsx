@@ -5,7 +5,7 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     return (
         <div className='bg-color'>
-            <div className='relative flex items-center justify-around px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
+            <div className='relative flex items-center justify-around px-4 py-5 mx-auto  lg:px-8'>
                 <Link
                     to='/'
                 >
@@ -110,7 +110,7 @@ const Navbar = () => {
                 {/* <button type='button' className='btn-primary hidden lg:flex'>
                     Start Applying
                 </button> */}
-                <div className="flex items-center gap-5">
+                <div className="flex items-center lg:gap-5">
                     <Link to={"/account/login"}><button type='button' className='btn-outlined hidden lg:flex'>
                         Login
                     </button></Link>
