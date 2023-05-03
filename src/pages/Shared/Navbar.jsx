@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProviders';
 
 const Navbar = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+    }
     return (
         <div className='bg-color'>
             <div className='relative flex items-center justify-around px-4 py-5 mx-auto  lg:px-8'>
@@ -111,9 +117,14 @@ const Navbar = () => {
                     Start Applying
                 </button> */}
                 <div className="flex items-center lg:gap-5">
-                    <Link to={"/account/login"}><button type='button' className='btn-outlined hidden lg:flex'>
-                        Login
-                    </button></Link>
+                    {user ?
+                        <button onClick={handleLogOut} type='button' className='btn-outlined hidden lg:flex'>
+                            Logout
+                        </button> :
+                        <Link to={"/account/login"}><button type='button' className='btn-outlined hidden lg:flex'>
+                            Login
+                        </button></Link>
+                    }
                     <img
                         src="https://via.placeholder.com/50"
                         alt="User Profile"
