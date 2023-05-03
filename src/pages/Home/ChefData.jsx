@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const SingleChefData = ({ singleChefData }) => {
+const ChefData = ({ singleChefData }) => {
     // console.log(singleChefData);
     const { id, chef_name, chef_picture, years_of_experience, num_recipes, likes } = singleChefData;
     return (
@@ -12,11 +13,11 @@ const SingleChefData = ({ singleChefData }) => {
                 <p className='font-semibold'>Likes: {likes}</p>
                 <p className='font-semibold'>Number of Recipes: {num_recipes}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn-primary">View Recipes</button>
+                    <Link to={`/chef-details/${id}`}><button className="btn-primary">View Recipes</button></Link>
                 </div>
             </div>
         </div>
     );
 };
 
-export default SingleChefData;
+export default ChefData;

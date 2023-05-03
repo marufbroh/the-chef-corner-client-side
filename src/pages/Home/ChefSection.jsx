@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import SingleChefData from './SingleChefData';
+import ChefData from './ChefData';
 
 const ChefSection = () => {
     const [chefData, setChefData] = useState([]);
@@ -13,7 +13,7 @@ const ChefSection = () => {
         <div className='my-container'>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-3'>
                 {
-                    chefData.slice(0, !showMore ? 6 : 10).map(singleChefData => <SingleChefData key={singleChefData.id} singleChefData={singleChefData} />)
+                    chefData.slice(0, !showMore ? 6 : 10).map(chefData => <ChefData key={chefData.id} singleChefData={chefData} />)
                 }
             </div>
             <div className='flex justify-center'>

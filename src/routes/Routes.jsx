@@ -7,6 +7,7 @@ import ChefDetails from "../pages/ChefDetails/ChefDetails";
 import Login from "../pages/Account/Login";
 import Register from "../pages/Account/Register";
 import Blog from "../pages/Blog/Blog";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -18,8 +19,9 @@ const router = createBrowserRouter([
                 element: <Home />
             },
             {
-                path: "/chef-details",
-                element: <ChefDetails />
+                path: "/chef-details/:id",
+                element: <PrivateRoute><ChefDetails /></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://ph-assignment-10-server-marufbroh.vercel.app/chef-data/${params.id}`)
             },
             {
                 path: "/blog",
