@@ -1,12 +1,42 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { AuthContext } from '../../providers/AuthProviders';
 
 const Register = () => {
+    const { createUser } = useContext(AuthContext);
+
+    const [error, setError] = useState("");
+    const [success, setSuccess] = useState("");
+    const handleRegister = (event) => {
+        event.preventDefault();
+        setError("");
+        setSuccess("")
+        const form = event.target;
+        const name = form.name.value;
+        const photoUrl = form.photoUrl.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(name, photoUrl, email, password);
+
+        createUser(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                // console.log(loggedUser);
+                setSuccess("User Succesfully Created")
+                form.reset()
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+
+    }
+
     return (
         <div className="py-6 lg:py-24">
             <div className=" bg-white rounded-lg shadow-lg mx-auto max-w-sm lg:max-w-xl">
-                <form className="w-full p-8">
+                <form onSubmit={handleRegister} className="w-full p-8">
                     <h2 className="text-2xl font-semibold text-gray-700 text-center">The Chef's Corner</h2>
                     <p className="text-xl text-gray-600 text-center">Please Register!</p>
                     <div className="mt-4">
@@ -32,6 +62,16 @@ const Register = () => {
                         <span className="border-b w-1/5 md:w-1/4"></span>
                         <p className="text-sm text-center text-gray-500">Already have an account? <Link to={"/account/login"} className='underline'>Login</Link></p>
                         <span className="border-b w-1/5 md:w-1/4"></span>
+                    </div>
+                    <div className='mt-4'>
+                        {
+                            error ? <p className="text-sm text-center text-red-600">
+                                {error}
+                            </p> :
+                                <p className="text-sm text-center text-green-500">
+                                    {success}
+                                </p>
+                        }
                     </div>
                     <div className='flex flex-col lg:flex-row gap-3'>
                         <button className="flex gap-2 items-center w-full justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
