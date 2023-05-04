@@ -16,7 +16,7 @@ const RecipeDetails = ({ recipe }) => {
         <div className="card card-compact bg-base-100 shadow-xl">
             <figure><img src={recipe_picture} alt="Shoes" /></figure>
             <div className="card-body">
-                <h2 className="card-title">{recipe_name} <button onClick={handleFavBtn} disabled={fav? true : false} ><FaRegHeart className={`${fav && 'text-red-700'}`} /></button></h2>
+                <h2 className="card-title">{recipe_name} <button onClick={handleFavBtn} disabled={fav ? true : false} ><FaRegHeart className={`${fav && 'text-red-700'}`} /></button></h2>
                 <Rating
                     style={{ maxWidth: 100 }}
                     value={rating}
@@ -41,13 +41,6 @@ const RecipeDetails = ({ recipe }) => {
                         instructions.map((ins, index) => <li key={index}>{ins}</li>)
                     }
                 </ul>
-
-
-
-
-                {/* <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
-                </div> */}
             </div>
         </div>
     );

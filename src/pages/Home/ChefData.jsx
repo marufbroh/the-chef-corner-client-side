@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ChefData = ({ chefData }) => {
-    // console.log(singleChefData);
     const { id, chef_name, chef_picture, years_of_experience, num_recipes, likes } = chefData;
     return (
         <div className="card lg:card-side bg-base-100 shadow-xl">

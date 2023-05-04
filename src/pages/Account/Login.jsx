@@ -10,7 +10,6 @@ const Login = () => {
     const navigate = useNavigate()
 
     const location = useLocation();
-    // console.log(location);
 
     const from = location.state?.from?.pathname || "/"
 
@@ -28,7 +27,7 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 setSuccess("User Successfully Logged")
                 toast.success("User Successfully Logged")
                 navigate(from, { replace: true })

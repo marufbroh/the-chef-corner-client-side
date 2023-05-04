@@ -40,20 +40,6 @@ const Register = () => {
             })
     }
 
-    // const updateUserInfo = (name, photoURL) => {
-    //     updateUserData(name, photoURL)
-    //         .then(() => {
-    //             // Profile updated!
-    //             // ...
-    //         }).catch((error) => {
-    //             setError(error.message);
-    //             toast.error(error.message)
-    //             // console.log(error.message);
-    //             // An error occurred
-    //             // ...
-    //         });
-    // }
-
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {

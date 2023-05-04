@@ -147,9 +147,6 @@ const Navbar = () => {
                         </div>
                     )}
                 </div>
-                {/* <button type='button' className='btn-primary hidden lg:flex'>
-                    Start Applying
-                </button> */}
                 <div className="flex items-center lg:gap-5">
                     {user ?
                         <button onClick={handleLogOut} type='button' className='btn-outlined hidden lg:flex'>
