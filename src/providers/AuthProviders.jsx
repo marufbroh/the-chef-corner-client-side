@@ -12,7 +12,6 @@ export const AuthContext = createContext(null)
 const AuthProviders = ({ children }) => {
 
     const [user, setUser] = useState(null)
-    // console.log(user);
 
     const [loading, setLoading] = useState(true)
 
