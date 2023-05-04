@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -163,9 +165,10 @@ const Navbar = () => {
                             src={user?.photoURL}
                             alt="User Profile"
                             className="w-10 h-10 rounded-full hidden lg:flex"
-                        />
-
+                            data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} data-tooltip-place="right"
+                        />                 
                     }
+                    <Tooltip id="my-tooltip"/>
                 </div>
             </div>
         </div>
