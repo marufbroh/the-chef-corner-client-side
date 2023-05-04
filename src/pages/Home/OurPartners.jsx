@@ -9,7 +9,7 @@ import partner6 from '../../assets/p6.jpg'
 
 const OurPartners = () => {
     return (
-        <div className='my-container space-y-6 px-3'>
+        <div className='my-container space-y-6'>
             <h2 className='font-bold text-4xl text-center'>Our Patner’s</h2>
             <div className="flex flex-col lg:flex-row justify-around ">
                 <img src={partner1} alt="" />
