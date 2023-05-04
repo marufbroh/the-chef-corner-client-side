@@ -5,7 +5,7 @@ import errorSvg from '../../assets/404 Error-pana.png'
 const ErrorPage = () => {
     const { error, status } = useRouteError()
     return (
-        <section className='flex items-center h-screen p-16 bg-gray-100 text-gray-900'>
+        <div className='flex items-center h-screen p-16 bg-gray-100 text-gray-900'>
             <div className='container flex flex-col items-center justify-center px-5 mx-auto my-8'>
                 <div className='max-w-md text-center'>
                     <img src={errorSvg} alt="404" />
@@ -20,7 +20,7 @@ const ErrorPage = () => {
                     </Link>
                 </div>
             </div>
-        </section>
+        </div>
     )
 }
 

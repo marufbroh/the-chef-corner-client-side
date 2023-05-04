@@ -1,17 +1,16 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import RecipeDetails from './RecipeDetails';
+import LazyLoad from 'react-lazy-load';
 
 const ChefDetails = () => {
     const singleChefData = useLoaderData();
-    // const kup = (dfdf) => 
-    // console.log(singleChefData);
     const { id, chef_name, chef_picture, years_of_experience, num_recipes, likes, short_bio, recipes } = singleChefData;
-    console.log(recipes);
+    // console.log(recipes);
     return (
-        <section className='my-container flex flex-col space-y-10'>
+        <div className='my-container flex flex-col space-y-10'>
             <div className="card lg:card bg-base-100 shadow-xl">
-                <figure><img src={chef_picture} alt="Chef Picture" /></figure>
+                <LazyLoad threshold={0.99}><figure><img src={chef_picture} alt="Chef Picture" /></figure></LazyLoad>
                 <div className="card-body">
                     <h2 className="card-title lg:text-5xl">Name: {chef_name}</h2>
                     <p className='text-xl'> <span className='font-semibold'>Short Bio: </span>{short_bio}</p>
@@ -29,7 +28,7 @@ const ChefDetails = () => {
                     recipes.map((recipe, index) => <RecipeDetails key={index} recipe={recipe} />)
                 }
             </div>
-        </section>
+        </div>
     );
 };
 

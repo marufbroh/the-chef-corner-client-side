@@ -5,7 +5,7 @@ import { FaRegHeart } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 
 const RecipeDetails = ({ recipe }) => {
-    console.log(recipe);
+    // console.log(recipe);
     const { recipe_picture, recipe_name, rating, instructions, ingredients } = recipe;
     const [fav, setFav] = useState(false);
     const handleFavBtn = () => {
