@@ -11,7 +11,7 @@ const OurPartners = () => {
     return (
         <div className='my-container space-y-6'>
             <h2 className='font-bold text-4xl text-center'>Our Patner’s</h2>
-            <div className="flex flex-col lg:flex-row justify-around ">
+            <div className="flex flex-col lg:flex-row justify-around space-y-3">
                 <img src={partner1} alt="" />
                 <img src={partner2} alt="" />
                 <img src={partner3} alt="" />

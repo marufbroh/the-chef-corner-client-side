@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../pages/Shared/Navbar';
 import Footer from '../pages/Shared/Footer';
+import { ScrollRestoration } from "react-router-dom";
 
 const Main = () => {
     return (
@@ -11,6 +12,7 @@ const Main = () => {
                 <Outlet />
             </div>
             <Footer />
+            <ScrollRestoration />
         </div>
     );
 };

@@ -5,8 +5,7 @@ import LazyLoad from 'react-lazy-load';
 
 const ChefDetails = () => {
     const singleChefData = useLoaderData();
-    const { id, chef_name, chef_picture, years_of_experience, num_recipes, likes, short_bio, recipes } = singleChefData;
-    // console.log(recipes);
+    const {chef_name, chef_picture, years_of_experience, num_recipes, likes, short_bio, recipes } = singleChefData;
     return (
         <div className='my-container flex flex-col space-y-10'>
             <div className="card lg:card bg-base-100 shadow-xl">
@@ -17,9 +16,6 @@ const ChefDetails = () => {
                     <p className='font-semibold text-xl'>Experience: {years_of_experience} years+</p>
                     <p className='font-semibold text-xl'>Likes: {likes}</p>
                     <p className='font-semibold text-xl'>Number of Recipes: {num_recipes}</p>
-                    {/* <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Listen</button>
-                </div> */}
                 </div>
             </div>
 
