@@ -1,15 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ChefData from './ChefData';
+import { AuthContext } from '../../providers/AuthProviders';
 
 const ChefSection = () => {
+    const { setLoading, loading } = useContext(AuthContext)
+
     const [chefData, setChefData] = useState([]);
     const [showMore, setShowMore] = useState(false)
+
     useEffect(() => {
         fetch("https://ph-assignment-10-server-marufbroh.vercel.app/chef-data")
             .then(res => res.json())
-            .then(data => setChefData(data))
+            .then(data => {
+                setChefData(data)
+                setLoading(false)
+            })
     }, [])
-    
+
+    if (loading) {
+        return (
+            <div className='my-container flex justify-center'>
+                <progress className="progress w-56"></progress>
+            </div>
+        )
+    }
+
     return (
         <div className='my-container'>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-3'>
