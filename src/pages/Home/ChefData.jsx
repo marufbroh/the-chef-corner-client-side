@@ -9,7 +9,7 @@ const ChefData = ({ chefData }) => {
             <figure className='lg:w-80'><img src={chef_picture} alt="chefPicture" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{chef_name}</h2>
-                <p className='font-semibold'>Years of Experience: {years_of_experience}</p>
+                <p className='font-semibold'>Experience: {years_of_experience} years+</p>
                 <p className='font-semibold'>Likes: {likes}</p>
                 <p className='font-semibold'>Number of Recipes: {num_recipes}</p>
                 <div className="card-actions justify-end">
